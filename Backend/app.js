@@ -22,6 +22,8 @@ const { v4: uuid } = require("uuid");
 
 // db connection and server start
 
+// console.com
+
 initializngDbandStartTheServer = async () => {
   console.log("asdssda");
   try {

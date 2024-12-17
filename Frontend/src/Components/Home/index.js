@@ -12,6 +12,7 @@ import { BsEmojiHeartEyes } from "react-icons/bs";
 import { MdCancel } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { connect } from "react-redux";
+console.log("hell home")
 
 import "./index.css";
 
