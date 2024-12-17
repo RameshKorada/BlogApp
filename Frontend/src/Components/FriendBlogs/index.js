@@ -8,4 +8,6 @@ const FriendsData = ({ eachBlog }) => {
   );
 };
 
+
+
 export default FriendsData;
