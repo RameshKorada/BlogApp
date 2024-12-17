@@ -1,0 +1,285 @@
+.home-container {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(21, 20, 20);
+  /* background: linear-gradient(to bottom, #ADD8E6, #FFFFFF);  */
+  /* Soft Gradient */
+
+  color: aliceblue;
+  min-height: 100vh;
+  align-items: center;
+  text-align: center;
+  padding-top: 0px;
+  margin-top: 0px;
+  width: 100%;
+}
+
+.home-container-off{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: rgb(21, 20, 20);
+  /* background: linear-gradient(to bottom, #ADD8E6, #FFFFFF);  */
+  /* Soft Gradient */
+
+ background-color:#feeafa;
+  min-height: 100vh;
+  align-items: center;
+  text-align: center;
+  padding-top: 0px;
+  margin-top: 0px;
+  width: 100%;
+}
+
+.post-container {
+  /* text-align: center; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+
+.home-main-container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.HomeAndLeftsideSection {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-profile-section {
+  width: 30%;
+  background-color: #000000;
+  /* background: linear-gradient(to bottom, #ADD8E6, #FFFFFF);  Soft Gradient */
+
+  border: 2px solid #000000;
+  /* margin: 5px; */
+  color: aliceblue;
+}
+
+.search-profile-section-off {
+  width: 30%;
+  color: #000000;
+  /* background: linear-gradient(to bottom, #ADD8E6, #FFFFFF);  Soft Gradient */
+
+  border: 2px solid aliceblue;
+  /* margin: 5px; */
+  background-color: #dee2ff;
+}
+
+.friends-search-history {
+
+  width: 21%;
+  background-color: rgb(21, 20, 20);
+  height: 75%;
+  color: aliceblue;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 15px;
+
+  position: absolute;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  margin-left: 10px;
+}
+
+
+.friends-search-history-off {
+
+  width: 21%;
+  color: rgb(21, 20, 20);
+  height: 75%;
+  background-color: #ffffff;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 15px;
+
+  position: absolute;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  margin-left: 10px;
+}
+
+
+
+.find-container {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+
+}
+
+.icon-no-reuest {
+  margin-right: 10px;
+}
+
+.find-container-mini {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  margin-left: 3px;
+}
+
+/* .HomeAndLeftsideSection {
+  background-color: rgb(21, 20, 20);
+} */
+
+.find-a-friend-input-field {
+
+  height: 32px;
+  width: 220px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+ background-color:#dffcfc;
+ 
+  color:#000000 ;
+
+  border: 2px solid #dffcfc;
+}
+
+.friend-profile-container {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgb(21, 20, 20);
+  color: aliceblue;
+  min-height: 100vh;
+
+  text-align: center;
+  padding-top: 0px;
+  margin-top: 0px;
+  width: 100%;
+}
+
+.count-icon-container {
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
+}
+
+.count-span {
+  margin-right: 5px;
+  position: absolute;
+  /* Adjust the spacing as needed */
+}
+
+.count-icon-container {
+  position: relative;
+  display: inline-block;
+  /* Ensures it wraps around the icon and span */
+  cursor: pointer;
+
+}
+
+.count-span {
+  position: absolute;
+  top: -5px;
+  /* Adjust this value to fine-tune the vertical positioning */
+  right: -5px;
+  /* Adjust this value to fine-tune the horizontal positioning */
+  background-color: #000000;
+  color: #ffffff;
+  /* Adjust text color as needed */
+  border-radius: 100%;
+  /* Makes it a circle, adjust as needed */
+  padding: 1px;
+  /* Adjust padding as needed */
+  font-size: 12px;
+  /* Adjust font size as needed */
+}
+
+.all-requests-container {
+
+  position: absolute;
+  width: 22%;
+  margin: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+
+}
+
+.each-request-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border: 0.5px solid rgb(255, 255, 255);
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgb(59, 55, 55);
+  margin-bottom: 5px;
+
+
+}
+
+.Accept-button {
+  width: 100px;
+  padding: 2px;
+  border-radius: 5px;
+  margin-right: 5px;
+  background-color: transparent;
+  color: aliceblue;
+
+
+}
+
+.Accept-button:hover {
+
+  border: 1px solid green;
+  cursor: pointer;
+  color: green;
+
+
+}
+
+.accept-button-cancelContainer {
+  display: flex;
+  align-items: center;
+}
+
+.cancel-icon:hover {
+  size: 30px;
+  color: red;
+  cursor: pointer;
+}
+
+.request-username {
+  cursor: pointer;
+}
+.find-your-buddy{
+  color: #dffcfc;
+  font-size: 23px;
+  font-style: italic;
+  padding-bottom: 2px;
+}
+.searchBlog{
+  position: sticky;
+  align-self:start ;
+  height: 27px;
+  width: 300px;
+
+}
+.search-blog{
+padding-bottom: 5px;
+color:#cff4f4;
+}
+
+.search-input-container{
+  text-align: left;
+}

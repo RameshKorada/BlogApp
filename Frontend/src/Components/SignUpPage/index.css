@@ -1,0 +1,101 @@
+.signUp-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    background: linear-gradient(to bottom, #ADD8E6, #FFFFFF);
+    /* Soft Gradient */
+}
+
+.sigup-form-container {
+    text-align: center;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    /* White */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle Shadow */
+    padding: 10px;
+    border-radius: 5px;
+    height: 590px;
+}
+
+.label-element {
+    text-align: left;
+    width: 300px;
+    margin: 5px;
+}
+
+.signupinputcontainer {
+    width: 100%;
+    height: 29px;
+    outline-color: none;
+    outline: none;
+    border-radius: 5px;
+
+    background: #d7edf4;
+    /* Dark Gray */
+    color: #070707;
+    border-color: transparent;
+    outline-color: red;
+    padding-left: 10px;
+}
+
+.signupinputcontainer:focus {
+    border: 2px solid black;
+}
+
+.signuplabelcontainer {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+
+}
+
+.sign-up-button {
+    padding: 5px;
+    outline-color: none;
+    outline: none;
+    border-radius: 2px;
+    border-radius: 5px;
+    margin: 10px;
+    width: 100px;
+
+    background: #333333;
+    /* Dark Gray */
+    color: #FFFFFF;
+    /* White text on dark background */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+
+    cursor: pointer;
+}
+
+.login-button-from-signup {
+    padding: 5px;
+    outline-color: none;
+    outline: none;
+    border-radius: 2px;
+    border-radius: 5px;
+    margin: 10px;
+    width: 100px;
+
+    background: #333333;
+    /* Dark Gray */
+    color: #FFFFFF;
+    /* White text on dark background */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+
+    cursor: pointer;
+}
+
+.signup-buttons-container {
+    padding: 10px;
+}

@@ -1,0 +1,34 @@
+.blogs-displaying-container {
+
+    width: 50%;
+    background-color: hsl(0, 0%, 0%);
+    padding: 20px;
+    color: aliceblue;
+    margin: 20px;
+    border-radius: 20px;
+
+
+
+}
+
+.delete-button {
+    background-color: #dffcfc;
+    color: #000000;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    list-style-type: none;
+    text-decoration: none;
+    margin: 10px;
+    text-align: center;
+}
+
+.delete-button:hover {
+
+    background-color: #000000;
+    color: #dffcfc;
+    border-color: transparent;
+    cursor: pointer;
+
+}

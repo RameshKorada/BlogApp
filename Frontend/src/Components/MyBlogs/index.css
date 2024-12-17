@@ -1,0 +1,39 @@
+.my-blogs-container {
+    background-color: rgb(21, 20, 20);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.all-my-blogs-container {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.no-blogs-view {
+    background-color: hsl(0, 0%, 0%);
+    margin: 20px;
+    border-radius: 20px;
+    height: 80%
+}
+
+.no-blogs-view-image {
+    height: 80%;
+    border-radius: 20px;
+
+}
+
+.postyourblog_link {
+    background-color: transparent;
+    color: aliceblue;
+    font-style: italic;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-top: 20px;
+}

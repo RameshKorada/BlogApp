@@ -1,0 +1,128 @@
+.header-container {
+    background-color: #000000;
+    /* background: linear-gradient(to bottom, #ADD8E6, #FFFFFF); */
+    /* Soft Gradient */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #dffcfc;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.header-container-off{
+    color: #000000;
+    position: sticky;
+    /* background: linear-gradient(to bottom, #ADD8E6, #FFFFFF); */
+    /* Soft Gradient */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+
+.header-ul-container {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0px;
+    list-style-type: none;
+    padding: 0px;
+
+}
+
+.header-li {
+    margin: 10px;
+}
+
+.header-Buttons {
+
+    background-color: #dffcfc;
+    color: #000000;
+    width: 120px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    list-style-type: none;
+    text-decoration: none;
+    margin: 10px;
+    text-align: center;
+    outline-color: transparent;
+    border-color: transparent;
+}
+
+.header-Buttons:hover {
+
+    background-color: #000000;
+    color: #dffcfc;
+    border-color: transparent;
+
+}
+
+.logo-find-container {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.friends-search-histor {}
+
+.header-main-contaner {
+    background-color: #000000;
+    height: 100%;
+    padding-bottom: 0px;
+
+    margin-bottom: 0px;
+
+}
+
+.profile-image {
+
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 50px;
+    margin-right: 5px;
+}
+
+
+.profile-section {
+    position: absolute;
+
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    /* Ensure it overlaps other content */
+    width: 21%;
+    margin: 10px;
+}
+.changeColorButton{
+    
+
+    background: none; /* Remove background */
+    border: none;     /* Remove border */
+    outline: none;
+    width: 30px;
+    height: 40px;
+    font-size: 25px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    cursor: pointer;
+}

@@ -1,0 +1,80 @@
+.frined-profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.SelectedFriendProfile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 20px;
+    text-align: left;
+}
+
+.hr-line {
+    background-color: grey;
+    height: 2px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.view-post-button {
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+
+}
+
+.Friend-Blogs-Data {
+    text-align: left;
+}
+
+.selected-friend-image-username {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.selected-friend-image-username-container {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.followers-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.follow {
+    margin: 10px;
+    background-color: transparent;
+    color: antiquewhite;
+    border: 0.02px solid #dffcfc;
+    border-radius: 3px;
+    padding: 5px;
+    width: 100px;
+    cursor: pointer;
+
+}
+
+.accept-request {
+    width: 120px;
+    height: 32px;
+}
+
+.accept-request:hover {
+
+    border-color: green;
+    color: green;
+}
