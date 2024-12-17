@@ -14,8 +14,7 @@ const sqlite3 = require("sqlite3");
 const path = require("path");
 
 
-// added a comment on app.js
-// db path
+
 const dbPath = path.join(__dirname, "userData.db");
 let db = null;
 
