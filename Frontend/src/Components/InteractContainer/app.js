@@ -1,60 +1,60 @@
-import { Component } from "react";
-
+import React, { useState } from "react";
 import "./app.css";
 
-class InteractContainer extends Component {
-  state = { imageSelected: "", imageAdded: false };
+const InteractContainer = () => {
+  const [imageSelected, setImageSelected] = useState("");
+  const [imageAdded, setImageAdded] = useState(false);
 
-  onSelectFile = (event) => {
+  const onSelectFile = (event) => {
     const file = event.target.files[0];
-    console.log(file);
     if (file) {
       const reader = new FileReader();
-      console.log(reader);
+
       reader.onloadend = () => {
-        this.setState({ imageSelected: reader.result, imageAdded: true });
+        setImageSelected(reader.result);
+        setImageAdded(true);
+      };
+
+      reader.onerror = () => {
+        console.error("Error reading file");
       };
 
       reader.readAsDataURL(file);
+    } else {
+      setImageSelected("");
+      setImageAdded(false);
     }
   };
 
-  render() {
-    const { imageAdded, imageSelected } = this.state;
-    //    console.log(imageSelected)
-    //   const url="http://localhost:3000/Screenshot (11).png"
-    return (
-      <div className="interact-container">
-        <ul className="interact-ul-container">
-          <div>
-            <li className="interact-li">
-              <input
-                className="add-image-buttons"
-                width={100}
-                height={200}
-                onChange={this.onSelectFile}
-                type="file"
-                id="image-add"
-                name="file"
-              />
-            </li>
-            {/* <div class="custom-file-upload">
-                            <label for="file-input">Add image</label>
-                            <input type="file" id="file-input" name="file"  onChange={this.onSelectFile}  />
-                        </div> */}
-          </div>
-        </ul>
+  return (
+    <div className="interact-container">
+      <ul className="interact-ul-container">
+        <li className="interact-li">
+          <label htmlFor="image-add" className="custom-file-label">
+            Add Image
+          </label>
+          <input
+            className="add-image-input"
+            type="file"
+            id="image-add"
+            name="file"
+            onChange={onSelectFile}
+          />
+        </li>
+      </ul>
 
-        {
-          <div>
-            {imageAdded && (
-              <img src={imageSelected} alt="photo_from_user" width={100} />
-            )}
-          </div>
-        }
-      </div>
-    );
-  }
-}
+      {imageAdded && (
+        <div className="image-preview-container">
+          <img
+            src={imageSelected}
+            alt="Uploaded preview"
+            className="image-preview"
+            width={100}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default InteractContainer;

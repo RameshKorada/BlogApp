@@ -9,6 +9,19 @@
 
 }
 
+
+.my-blogs-container-off {
+    background-color:#ffffff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
 .all-my-blogs-container {
     display: flex;
     flex-direction: column;

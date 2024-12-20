@@ -24,7 +24,7 @@
   /* background: linear-gradient(to bottom, #ADD8E6, #FFFFFF);  */
   /* Soft Gradient */
 
- background-color:#feeafa;
+ background-color:#d1d1d1;
   min-height: 100vh;
   align-items: center;
   text-align: center;
@@ -71,7 +71,7 @@
 
   border: 2px solid aliceblue;
   /* margin: 5px; */
-  background-color: #dee2ff;
+  background-color: #f7f7f7;
 }
 
 .friends-search-history {
@@ -157,6 +157,22 @@
   justify-content: flex-start;
   background-color: rgb(21, 20, 20);
   color: aliceblue;
+  min-height: 100vh;
+
+  text-align: center;
+  padding-top: 0px;
+  margin-top: 0px;
+  width: 100%;
+}
+
+
+.friend-profile-container-off {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color:#ffffff;
+  color: rgb(21, 20, 20);
   min-height: 100vh;
 
   text-align: center;

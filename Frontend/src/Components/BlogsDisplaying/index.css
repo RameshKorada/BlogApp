@@ -11,10 +11,24 @@
 
 }
 
+
+.blogs-displaying-container-off {
+
+    width: 50%;
+    background-color:#f7f7f7;
+    padding: 20px;
+    color: #000000;
+    margin: 20px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-family: 'Merriweather', serif;
+
+
+}
 .delete-button {
     background-color: #dffcfc;
     color: #000000;
-    padding: 10px;
+    padding: 5px;
     font-size: 20px;
     font-weight: 600;
     border-radius: 5px;
@@ -22,6 +36,7 @@
     text-decoration: none;
     margin: 10px;
     text-align: center;
+    margin-left: 0px;
 }
 
 .delete-button:hover {
