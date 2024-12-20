@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter, Link } from "react-router-dom";
+import {  Link ,useNavigate} from "react-router-dom";
 import Profile from "../Profile";
 import Cookies from "js-cookie";
 import { useState } from "react";
@@ -12,6 +12,7 @@ import { useDispatch,useSelector } from "react-redux";
 import "./index.css";
 
 const Header = (props) => {
+  const navigate=useNavigate()
   const username = Cookies.get("username");
   const [showProfile, setshowProfile] = useState(false);
   const [canChangePassword, setcanChangePassword] = useState(false);
@@ -26,10 +27,10 @@ const Header = (props) => {
     Cookies.remove(usernameFromLocalstorage);
     Cookies.remove("jwtToken");
 
-    const { history } = props;
-    history.replace("/login");
+    // const { history } = props;
+    // history.replace("/login");
 
-    // navigate("/")
+     navigate("/login")
   };
 
   const toggleProfile = () => {
@@ -215,4 +216,4 @@ const Header = (props) => {
 //   }
 // }
 
-export default withRouter(Header);
+export default Header;

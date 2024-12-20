@@ -11,7 +11,7 @@ const SelectedFriendProfile = ({
   isTheUserRequestedYou,
   isAcceptButtonClickedHome,
   afterClickOnAcceptButton,
-  isClicked
+  isClicked,
 }) => {
   console.log(selectedFriendData, "selected f data");
   const [showAllBlogs, setshowAllBlogs] = useState(false);
@@ -155,20 +155,15 @@ const SelectedFriendProfile = ({
     const parsedData = await apiRequest.json();
 
     if (apiRequest.ok) {
-      // console.log(parsedData,"parsed Data")
 
       if (parsedData.length !== 0) {
         const isFollowRequestAcceptData = parsedData[0].isRequestAccept;
         console.log(isFollowRequestAcceptData);
         if (isFollowRequestAcceptData === "true") {
-          // console.log('on Click on accept on home')
-          // onClickOnAcceptInFriendProfile(true)
           afterClickOnAcceptButton();
           setisRequestAccept(true);
         } else {
-          //  console.log('else calling')
-          // onClickOnAcceptInFriendProfile(false)
-
+         
           setisRequestAccept(false);
         }
       } else {
@@ -178,12 +173,9 @@ const SelectedFriendProfile = ({
   };
 
   // on follow back button
-
   const onFollowBackButton = async () => {
     const username = Cookies.get("username");
-
     const followApi = `http://localhost:3004/followrequestBack`;
-
     const options = {
       method: "POST",
       headers: {
@@ -199,19 +191,14 @@ const SelectedFriendProfile = ({
       checkingFollowBackuserRequest();
     }
   };
-
   const checkingFollowBackuserRequest = async () => {
     const username = Cookies.get("username");
-
     const userName = selectedFriendData.username;
     const loginUsername = Cookies.get("username");
-    // console.log('apidaa')
-
     const followApiChecking = `http://localhost:3004/followrequestChecking/${userName}/${loginUsername}`;
     const apiRequest = await fetch(followApiChecking);
     const apiResponceParsed = await apiRequest.json();
     console.log(apiResponceParsed, "res on followback button");
-
     if (apiRequest.ok) {
       if (apiResponceParsed.length === 1) {
         setfollowSuccessStatus(true);
@@ -221,7 +208,6 @@ const SelectedFriendProfile = ({
         }
       } else {
         setshowingUnFollow(false);
-
         setfollowSuccessStatus(false);
       }
     }
@@ -238,10 +224,9 @@ const SelectedFriendProfile = ({
           />
           <span>{selectedFriendData.username}</span>
         </div>
-        <div className="followers-container">
+        {/* <div className="followers-container">
           <button className="follow">Followers</button>
           <button className="follow">Following</button>
-          {/* <button className='follow' onClick={onFollowButton}>Follow</button> */}
           {followSuccessStatus ? (
             <div>
               {showingUnFollow ? (
@@ -276,13 +261,18 @@ const SelectedFriendProfile = ({
               )}
             </div>
           )}
-          {}
-        </div>
+        </div> */}
+        {
+          <div>
+          <button>
+            Follow
+          </button>
+          </div>
+        }
       </div>
 
       <br />
       <div>
-        {" "}
         <button onClick={onViewPost} className="view-post-button" type="button">
           View Posts
         </button>

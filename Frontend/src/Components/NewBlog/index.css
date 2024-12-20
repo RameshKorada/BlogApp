@@ -9,12 +9,37 @@
 
 }
 
+.blogs-container-off {
+
+    background-color:#ffffff;
+    color: aliceblue;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+
 .text-area-container {
     background-color: transparent;
     color: #dffcfc;
     width: 100%;
     font-weight: 600;
     border: 2px solid #dffcfc;
+    padding: 8px;
+    border-radius: 5px;
+    resize: vertical;
+
+
+}
+
+.text-area-container-off {
+    background-color: transparent;
+    color: #000000;
+    width: 100%;
+    font-weight: 600;
+    border: 2px solid #000000;
     padding: 8px;
     border-radius: 5px;
     resize: vertical;
@@ -35,6 +60,7 @@
     text-align: center;
 }
 
+
 .post-title {
 
     color: #dffcfc;
@@ -49,7 +75,7 @@
     width: 120px;
     font-size: 20px;
     font-weight: 600;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     margin-top: 10px;
     cursor: pointer;

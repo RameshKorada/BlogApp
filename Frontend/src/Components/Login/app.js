@@ -1,48 +1,30 @@
-import { Component } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { useState } from "react";
+import {  Link,useNavigate } from "react-router-dom"; // Import useNavigate
 import Cookies from "js-cookie";
-
 import "./index.css";
 
-class Login extends Component {
-  state = {
-    username: "",
-    password: "",
-    ErrorShowingStatus: false,
-    ErrorMessage: "",
-    showUserNameError: false,
-    showPasswordError: false,
-    showPassword: false,
-  };
+const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [ErrorShowingStatus, setErrorShowingStatus] = useState(false);
+  const [ErrorMessage, setErrorMessage] = useState("");
+  const [showUserNameError, setShowUserNameError] = useState(false);
+  const [showPasswordError, setShowPasswordError] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  // const history=useHistory()
+  const navigate = useNavigate(); // Hook to navigate programmatically
 
-  gettingUserName = (event) => {
-    this.setState({ username: event.target.value });
-  };
-
-  gettinPassword = (event) => {
-    this.setState({ password: event.target.value });
-  };
-
-  // setting jwtToken by using cookies
-
-  settingJwtToken = (jwtToken) => {
+  // Setting JWT token in cookies
+  const settingJwtToken = (jwtToken) => {
     Cookies.set("jwtToken", jwtToken, { expires: 30 });
-
-    const { history } = this.props;
-    //  console.log(history)
-    history.replace("/");
+    navigate("/"); // Redirect to home after login
   };
 
-  sendingUserNameAndPassword = async (e) => {
+  // Sending username and password to the server
+  const sendingUserNameAndPassword = async (e) => {
     e.preventDefault();
 
-    const { username, password } = this.state;
-    const loginDetails = {
-      username,
-      password,
-    };
+    const loginDetails = { username, password };
 
     const userDetails = {
       method: "POST",
@@ -52,38 +34,24 @@ class Login extends Component {
       body: JSON.stringify(loginDetails),
     };
 
+    // Handling validation
     if (username.length === 0 || password.length === 0) {
-      username.length === 0
-        ? this.setState({ showUserNameError: true })
-        : this.setState({ showUserNameError: false });
-      password.length === 0
-        ? this.setState({ showPasswordError: true })
-        : this.setState({ showPasswordError: false });
+      setShowUserNameError(username.length === 0);
+      setShowPasswordError(password.length === 0);
     } else {
       try {
-        const sendingData = await fetch(
-          "http://localhost:3004/login",
-          userDetails
-        );
-        console.log(sendingData);
+        const sendingData = await fetch("http://localhost:3004/login", userDetails);
+
         if (sendingData.ok) {
           const responseData = await sendingData.json();
-          console.log("Response Data:", responseData);
-          this.settingJwtToken(responseData.jwtToken);
+          settingJwtToken(responseData.jwtToken);
           Cookies.set("username", username, { expires: 30 });
-        } else if (!sendingData.ok) {
-          const errorResponse = await sendingData.json().catch(() => null);
-          console.log(errorResponse);
-          this.setState({
-            ErrorMessage: errorResponse.error,
-            ErrorShowingStatus: true,
-          });
-          this.setState({password:""})
-          this.setState({username:""})
-
-
         } else {
-          console.error("Request failed with status:", sendingData.status);
+          const errorResponse = await sendingData.json().catch(() => null);
+          setErrorMessage(errorResponse.error);
+          setErrorShowingStatus(true);
+          setPassword(""); // Clear password
+          setUsername(""); // Clear username
         }
       } catch (e) {
         console.error("Error:", e.message);
@@ -91,96 +59,73 @@ class Login extends Component {
     }
   };
 
-  // password showing function
-
-  showPassword = () => {
-    const { showPassword } = this.state;
-    this.setState((prevState) => ({ showPassword: !showPassword }));
+  // Toggle password visibility
+  const showPasswordToggle = () => {
+    setShowPassword((prevState) => !prevState);
   };
 
-  render() {
-    const {
-      ErrorMessage,
-      ErrorShowingStatus,
-      showUserNameError,
-      showPasswordError,
-      password,
-      showPassword,
-      username
-    } = this.state;
+  const pass = showPassword ? "text" : "password";
 
-    const pass = showPassword ? "text" : "password";
-
-    const jwtToken = Cookies.get("jwtToken");
-    if (jwtToken !== undefined) {
-      return <Redirect to="/" />;
-    }
-
-    return (
-      <div className="login-page-container">
-        <div className="login-form">
-          <h1>Login Page</h1>
-          <form onSubmit={this.sendingUserNameAndPassword}>
-            <div className="input-container-elements">
-              <label className="login-label">Username</label>
-              <br />
-              <input
-                className="input-field"
-                onChange={this.gettingUserName}
-                type="text"
-                value={username}
-              />
-              <br />
-              {showUserNameError ? (
-                <span className="error-message-element">
-                  * Please Enter Username
-                </span>
-              ) : (
-                " "
-              )}
-            </div>
-            <div className="input-container-elements">
-              <label className="login-label">Password</label>
-              <br />
-              <input
-                className="input-field"
-                onChange={this.gettinPassword}
-                type={pass}
-                value={password}
-              />
-              <br />
-              {showPasswordError ? (
-                <span className="error-message-element">
-                  * Please Enter Password
-                </span>
-              ) : (
-                " "
-              )}
-              <div className="show-password-contaier">
-                <input onClick={this.showPassword} type="checkbox" />
-                <label>Show Password</label>
-              </div>
-            </div>
-            <div className="login-button-container">
-              <input className="login-button" type="submit" value="Login" />
-              <br />
-              <Link
-                to="/signup"
-                className="input-container-elements link-element"
-              >
-                <span>New User? Please Register here...</span>
-              </Link>
-            </div>
-          </form>
-          {ErrorShowingStatus ? (
-            <span className="error-message-element">*{ErrorMessage}</span>
-          ) : (
-            ""
-          )}
-        </div>
-      </div>
-    );
+  const jwtToken = Cookies.get("jwtToken");
+  if (jwtToken !== undefined) {
+    navigate("/"); // Redirect to home if token exists
+    return null; // Return null since redirect happens programmatically
   }
-}
+
+  return (
+    <div className="login-page-container">
+      <div className="login-form">
+        <h1>Login Page</h1>
+        <form onSubmit={sendingUserNameAndPassword}>
+          <div className="input-container-elements">
+            <label className="login-label">Username</label>
+            <input
+              className="input-field"
+              onChange={(e) => setUsername(e.target.value)}
+              type="text"
+              value={username}
+            />
+            {showUserNameError && (
+              <span className="error-message-element">
+                * Please Enter Username
+              </span>
+            )}
+          </div>
+
+          <div className="input-container-elements">
+            <label className="login-label">Password</label>
+            <input
+              className="input-field"
+              onChange={(e) => setPassword(e.target.value)}
+              type={pass}
+              value={password}
+            />
+            {showPasswordError && (
+              <span className="error-message-element">
+                * Please Enter Password
+              </span>
+            )}
+            <div className="show-password-container">
+              <input onClick={showPasswordToggle} type="checkbox" />
+              <label>Show Password</label>
+            </div>
+          </div>
+
+          <div className="login-button-container">
+            <input className="login-button" type="submit" value="Login" />
+            <br />
+            <Link to="/signup" className="input-container-elements link-element">
+              <span>New User? Please Register here...</span>
+            </Link>
+          </div>
+        </form>
+
+        {ErrorShowingStatus && (
+          <span className="error-message-element">*{ErrorMessage}</span>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default Login;
